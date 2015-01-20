@@ -1,0 +1,40 @@
+extends ../layouts/layout
+
+block sub-header
+  h1.title Your Posts
+
+block sub-tail
+  script.
+    Journalling.setChartMostVisted('chart-4', !{JSON.stringify(posts)})
+
+block sub-content
+  div#posts-index-container.content
+
+    div#charts.box.size-10
+      div.chart.chart-1.ct-chart
+      div.chart.chart-2
+      div.chart.chart-3
+
+    div.box.bordered.size-5
+      div.header
+        h3 All posts
+      table
+        tr
+          th Title
+          th Date
+        each post in posts
+          tr(href="/dashboard/posts/#{post._id.toHexString()}").clickable
+            td= post.title
+            td= formatDate( post.createdAt )
+
+    div.box.bordered.size-3
+      div.header
+        h3 Most read posts
+      table
+        tr
+          th Grade
+          th Title
+        each post in posts
+          tr(href="/dashboard/posts/#{post._id.toHexString()}").clickable
+            td.bold.centered= $index + 1 
+            td= post.title

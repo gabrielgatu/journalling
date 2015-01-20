@@ -1,0 +1,66 @@
+extends ../layout
+
+block head
+  link(rel='stylesheet', href='../posts.css')
+
+block header 
+  include ../common/header
+
+block content
+  div#homepage-container
+
+    div#common-header
+      div.image
+        span.button Change image
+      div#user-image
+
+    div#info-bar
+      div.sx
+
+        div.info-box
+          span.name Posts
+          span.value 234
+
+        div.info-box
+          span.name Posts
+          span.value 234
+
+        div.info-box
+          span.name Posts
+          span.value 234
+
+      div.dx
+
+        div.info-box
+          span.name Posts
+          span.value 234
+
+        div.info-box
+          span.name Posts
+          span.value 234
+
+        div.info-box
+          span.name Posts
+          span.value 234
+
+    div.wrapper
+      div.sidebar
+
+      div.content
+
+        each post in posts
+          div.post
+            div.post-header
+
+              span.infos
+                span.author= post.author.name
+                span.date= post.createdAt
+
+              h2.title 
+                a(href="/posts/#{post._id.toHexString()}")= post.title
+
+            div.post-content
+              p.text= post.content
+
+            div.post-footer
+              span.continue Continue reading....

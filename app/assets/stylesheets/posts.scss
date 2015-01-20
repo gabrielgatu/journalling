@@ -1,0 +1,205 @@
+$info-bar-height: 3.4em;
+$sidebar-width: 22em;
+
+$image-height: 22em;
+$user-image-size: 10em;
+
+@import "utility";
+
+#common-header {
+	width: 100%;
+	position: relative;
+
+	.image {
+		width: 100%;
+		height: $image-height;
+		background-image: url("header.png");
+		background-size: cover;
+		position: relative;
+
+		.button {
+			color: #fff;
+			text-transform: uppercase;
+			position: absolute;
+			bottom: 2em;
+			right: 2em;
+			padding: 0.5em 0.8em;
+			background-color: rgb(30, 30, 30);
+			background-color: rgba(30, 30, 30, .7);
+		}
+	}
+
+	#user-image {
+		width: $user-image-size;
+		height: $user-image-size;
+		margin: auto;
+		background-image: url("user-image.jpg");
+		background-size: cover;
+		border: $user-image-size/26 solid #fff;
+		position: absolute;
+		top: $image-height - 1.7em;
+		left: 50%;
+		margin-top: -$user-image-size / 2;
+		margin-left: -$user-image-size / 2;
+		z-index: 111;
+		@include border-radius($user-image-size);
+	}
+
+	&.small {
+		.image {
+			height: 12em;
+		}
+
+		#user-image {
+			top: 10em;
+			left: 8em;
+		}
+	}
+}
+ 
+#homepage-container {
+	width: 100%;
+	position: relative;
+   
+	#info-bar {
+		width: 100%;
+		height: $info-bar-height;
+		border-bottom: 0.1em solid #dedede;
+		position: absolute;
+		top: $image-height;
+		z-index: 1;
+
+		.sx { float: left; margin-left: 10em; }
+		.dx { float: right; margin-right: 10em; }
+
+		.sx .info-box { margin-left: 3em; }
+		.dx .info-box { margin-right: 3em; }
+
+		.info-box {
+			height: 100%;
+			margin-top: 0.5em;
+			float: left;
+
+			.name {
+				display: block;
+				text-transform: uppercase;
+				font-size: 0.8em;
+			}
+
+			.value {
+				display: block;
+				font-size: 1.5em;
+				color: #2980b9;
+			}
+		}
+	}
+
+	.wrapper {
+		margin-top: $info-bar-height + 2em;
+		margin-bottom: 3em;
+		
+		.sidebar {
+			width: $sidebar-width;
+			height: 20em;
+			float: left;
+		}
+
+		.content {
+			border-left: 1px solid #eee;
+			position: absolute;
+			left: $sidebar-width;
+			right: 0;
+
+			.post {
+				padding: 1.5em 1.5em 4.5em 1.5em;
+				margin-bottom: 3em;
+				border-bottom: 0.1em solid #ddd;
+
+				&:last-child {
+					border-bottom: 0em;
+				}
+
+				.post-header {
+					.infos {
+						font-size: 0.9em;
+
+						.author {
+							color: #2980b9;
+						}
+
+						.date {
+							color: #777;
+							float: right;
+						}
+					}
+
+					.title {
+						font-size: 1.5em;
+						color: #333;
+						margin-top: 0.3em;
+						font-family: arial;
+						cursor: pointer;
+
+						a, a:link, a:active, a:visited {
+							text-decoration: none;
+							color: #333;
+						}
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+
+				.post-content {
+					.text {
+						margin-top: 0.5em;
+						line-height: 1.2em;
+					}
+				}
+
+				.post-footer {
+					.continue {
+						float: right;
+						color: #888;
+						font-size: 0.8em;
+					}
+				}
+			}
+		}
+	}
+}
+
+#post-show-container {
+	width: 100%;
+	position: relative;
+
+	.content-post {
+		width: 45em;
+		margin: 3em auto;
+
+		.infos {
+			width: 100%;
+
+			.author {
+				color: #2980b9;
+			}
+
+			.date {
+				color: #555;
+				float: right;
+			}
+		}
+
+		.title {
+			font-size: 2.8em;
+			line-height: 1.3em;
+			margin-top: 0.5em;
+		}
+
+		.text {
+			margin-top: 2em;
+			line-height: 1.5em;
+		}
+	}
+}

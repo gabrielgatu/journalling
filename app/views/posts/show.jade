@@ -1,0 +1,23 @@
+extends ../layout
+
+block head
+  link(rel='stylesheet', href='../posts.css')
+
+block header 
+  include ../common/header
+
+block content
+  div#post-show-container
+
+    div#common-header.small
+      div.image
+        span.button Change image
+      div#user-image
+
+    div.wrapper
+      div.content-post
+        div.infos
+          span.author= post.author.name
+          span.date= post.createdAt
+        h1.title= post.title
+        p.text= post.content

@@ -1,0 +1,27 @@
+extends ../../layout
+
+block head
+	link(rel='stylesheet', href='../dashboard-index.css')
+
+block header 
+	include ../../common/header
+
+block content
+	div#dashboard-login-container
+
+		div.header
+			div#logo
+				div.image
+				div.title Welcome to Journalling
+
+		div.content
+			div#login-box
+
+				div#message-box
+					if message 
+						p Error: #{message}.
+
+				form(action = "/dashboard/login", method = "POST")#login-form
+					input(type = "text", name = "username" placeholder = "Username", required, autofocus).field
+					input(type = "password", name = "password", placeholder = "Password", required).field
+					input(type = "submit", value = "Login").button

@@ -1,0 +1,14 @@
+extends ../layouts/layout
+
+block sub-header
+  h1.title Edit post
+
+block sub-content
+  div#posts-edit-container
+    div#post-container
+      form
+        div(contenteditable="true").field.title= post.title
+        div(contenteditable="true").field.content= post.content
+        div.footer
+          input(type="reset", value="Clear").button.reset
+          input(type="submit", value="Save changes").button.submit

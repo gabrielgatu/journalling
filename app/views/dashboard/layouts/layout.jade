@@ -1,0 +1,45 @@
+extends ../../layout
+
+block head
+  link(rel='stylesheet', href='../../chartist/dist/chartist.min.css')
+  link(rel='stylesheet', href='../../dashboard.css')
+
+block tail
+  script(src="../../chartist/dist/chartist.js")
+  script(src="../../dashboard.js")
+  block sub-tail
+
+block header
+  div.logo
+    a(href="/dashboard/home")
+      h3 journalling 
+        span dashboard
+  div.nav
+    div.triangle
+    ul
+      li Home
+      li Add-ons
+      li Docs
+      li Support
+
+block content
+  div#dashboard-sidebar
+    div#user-info
+    ul
+      li 
+        a(href="/dashboard/home") Home
+      li
+        a.active Posts
+        ul
+          li
+            a(href="/dashboard/posts") All
+          li
+            a New
+          li
+            a Favorites
+
+  div#dashboard-content
+    div#dashboard-content-header
+      block sub-header
+    div#dashboard-content-container
+      block sub-content
